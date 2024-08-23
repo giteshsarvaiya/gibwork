@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gibwork</title>
+    <link href="./output.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navbar  -->
+    <nav class="bg-[#FFFFFF] text-black p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-black text-2xl md:text-3xl font-bold">
+                <a href="#">gibwork</a>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-black hover:text-gray-600">home</a>
+                <a href="#about-us" class="text-black hover:text-gray-600">about us</a>
+                <a href="#" class="text-black hover:text-gray-600">testimonials</a>
+                <a href="#" class="text-black hover:text-gray-600">socials</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="nav-toggle"
+                    class="text-black hover:text-black focus:outline-none transition-transform transform">
+                    <svg id="nav-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="nav-content"
+            class="md:hidden hidden flex justify-between px-2 transition-all duration-300 ease-in-out transform origin-top">
+            <a href="#" class="nav-button block text-black hover:text-gray-600 px-2 py-1">home</a>
+            <a href="#" class="nav-button block text-black hover:text-gray-600 px-2 py-1">testimonials</a>
+            <a href="#" class="nav-button block text-black hover:text-gray-600 px-2 py-1">socials</a>
+            <!-- <a href="#" class="nav-button block text-black hover:text-gray-600 px-2 py-1">Contact</a> -->
+        </div>
+    </nav>
+
+    <!-- main section -->
+    <main class="container mx-auto flex flex-col justify-between align-middle">
+        <!-- hero section -->
+        <div class="flex flex-col h-auto p-2 mt-6 justify-center items-center gap-10">
+            <p class="font-semibold border-2 border-gray-400 rounded-full inline-block p-4 md:text-lg text-center">
+                join the public beta
+            </p>
+            <p class="md:text-4xl text-2xl font-bold text-center mt-4">
+                a place to <span class="bg-[#8151FD] text-white px-2">create</span><br class="md:hidden" />
+                and <br class="md:hidden" /><span class="px-2 bg-[#8151FD] text-white">win</span>
+                bounties.
+            </p>
+            <p class="md:text text-center text-gray-600">
+                we're currently in <br class="md:hidden" /><span class="m-0 font-extrabold text-black">public
+                    beta</span>
+                <br class="md:hidden" />
+                and invite you join
+            </p>
+
+            <a href="https://app.gib.work"
+                class="bg-[#391B8E] p-2 px-4 md:text-2xl text-lg font-bold rounded-lg text-white inline-block hover:bg-[#2c0e6e] focus:outline-none focus:ring-4 focus:ring-[#2c0e6e]">
+                join now
+            </a>
+        </div>
+
+        <!-- about us -->
+        <div class="flex" id="about-us">
+            <div>
+                <div class="flex justify-between">
+                    <h1 class="text-xl font-semibold pb-3">Recent Work</h1>
+                    <h1 class="text-xl font-light pb-3">$9,275.83</h1>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const navToggle = document.getElementById("nav-toggle");
+        const navContent = document.getElementById("nav-content");
+        const navButton = document.querySelectorAll(".nav-button");
+
+        navButton.forEach(function (button) {
+            button.addEventListener("click", () => {
+                navContent.classList.add("hidden");
+            });
+        });
+
+        const navIcon = document.getElementById("nav-icon");
+
+        navToggle.addEventListener("click", () => {
+            navIcon.classList.add("rotate-animation");
+
+            // Remove the animation class after the animation ends to allow re-triggering
+            navIcon.addEventListener("animationend", () => {
+                navIcon.classList.remove("rotate-animation");
+            });
+
+            if (navContent.classList.contains("hidden")) {
+                navContent.classList.remove("hidden");
+                navContent.classList.add("scale-y-100");
+            } else {
+                navContent.classList.add("hidden");
+                navContent.classList.remove("scale-y-100");
+            }
+        });
+    </script>
+</body>
+
+</html>
